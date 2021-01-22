@@ -12,7 +12,7 @@ class Lights {
     constructor(ledPorts) {
         this.leds = []
         for(var port in ledPorts) {
-            this.leds.append(new Gpio(port.gpio), {mode: Gpio.OUTPUT})
+            this.leds.push(new Gpio(port.gpio), {mode: Gpio.OUTPUT})
         }
         this.flashTimer = null;
         this.flashStateIsOn = false;
