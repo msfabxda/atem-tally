@@ -11,9 +11,9 @@ class Lights {
      */
     constructor(ledPorts) {
         this.leds = []
-        for(var port in ledPorts) {
-            this.leds.push(new Gpio(port.gpio), {mode: Gpio.OUTPUT})
-        }
+        ledPorts.forEach(port => {
+            this.leds.push(new Gpio(port.gpio,  {mode: Gpio.OUTPUT}))
+        });
         this.flashTimer = null;
         this.flashStateIsOn = false;
     }
@@ -30,7 +30,7 @@ class Lights {
 
         this.flashTimer = setInterval(() => {
             if(this.flashStateIsOn) {
-                this.pwmWrite();
+                this.pwmWrite(0);
             } else {
                 this.pwmWrite(brightness);
             }
@@ -54,9 +54,9 @@ class Lights {
      */
     off() {
         this.stopFlashing();
-        for( var led in this.leds ) {
+        this.leds.forEach(led => {
             led.digitalWrite(0);
-        }
+        })
     }
 
     ledOn(index){
@@ -70,10 +70,9 @@ class Lights {
     }
 
     pwmWrite(value) {
-        for(var led in this.leds) {
+        this.leds.forEach(led => {
             led.pwmWrite(value);
-        }
-        
+        }); 
     }
 }
 
