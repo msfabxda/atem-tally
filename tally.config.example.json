@@ -1,15 +1,12 @@
 {
-  "inputID": 1,
+
   "switcherIP": "192.168.1.25",
-  "ledGpioPins": {
-    "red": 17,
-    "green": 22,
-    "blue": 27
-  },
+  "leds":[
+    {"inputID" : 1, "gpio": 17},
+    {"inputID" : 2, "gpio": 22},
+    {"inputID" : 3, "gpio": 27},
+    {"inputID" : 4, "gpio": 27}
+  ],
   "disconnectedFlashFrequency": 700,
-  "disconnectedFlashColor": {
-    "red": 255,
-    "green": 0,
-    "blue": 0
-  }
+  "disconnectedFlashBrightness": 255 
 }
