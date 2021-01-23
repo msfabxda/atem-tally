@@ -37,7 +37,7 @@ switcher.on('stateChanged', (state) => {
 	// This camera is either in program OR preview, and there is an ongoing transition.
 	} else{
 
-		for(var i=0; i<config.leds.length; i++) {}
+		for(var i=0; i<config.leds.length; i++) {
 			if(program === config.leds[i].inputID) {
 				lights.ledOn(i); 
 			}else{
@@ -45,4 +45,4 @@ switcher.on('stateChanged', (state) => {
 			}
 		}
 	}
-);
+});
